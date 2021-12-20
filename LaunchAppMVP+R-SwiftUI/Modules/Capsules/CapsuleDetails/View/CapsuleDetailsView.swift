@@ -30,7 +30,7 @@ extension CapsuleDetailsView {
     private func configureCapsuleDetailsCell(with value: CapsuleDetailsCellViewModel) -> some View {
         HStack(alignment: .top, spacing: Constants.standartPadding) {
             Text(value.title + ":")
-                .frame(width: 80)
+                .frame(width: 80, alignment: .leading)
             Text(value.value)
             Spacer()
         }
