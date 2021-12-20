@@ -1,8 +1,8 @@
 //
 //  AppDelegate.swift
-//  LaunchAppMVP+R-SwiftUI
+//  LaunchAppMVP+R+UIKit
 //
-//  Created by Anton Vlezko on 20.12.2021.
+//  Created by Anton Vlezko on 10.12.2021.
 //
 
 import UIKit
@@ -10,7 +10,7 @@ import UIKit
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
+    private let manager = DependencyManager()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
