@@ -41,13 +41,13 @@
 		84E009DB2770D01500F9BE7C /* SpaceXDataAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E009B12770D01500F9BE7C /* SpaceXDataAPI.swift */; };
 		84E009DC2770D01500F9BE7C /* SpaceXDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E009B22770D01500F9BE7C /* SpaceXDataService.swift */; };
 		84E009DD2770D01500F9BE7C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E009B42770D01500F9BE7C /* Constants.swift */; };
-		84E009DE2770D01500F9BE7C /* Extension + UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E009B52770D01500F9BE7C /* Extension + UIViewController.swift */; };
-		84E009DF2770D01500F9BE7C /* Extension + UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E009B62770D01500F9BE7C /* Extension + UIFont.swift */; };
+		84E009DE2770D01500F9BE7C /* Extension-UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E009B52770D01500F9BE7C /* Extension-UIViewController.swift */; };
+		84E009DF2770D01500F9BE7C /* Extension-UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E009B62770D01500F9BE7C /* Extension-UIFont.swift */; };
 		84E009E02770D01500F9BE7C /* DependencyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E009B72770D01500F9BE7C /* DependencyManager.swift */; };
 		84E009E12770D01500F9BE7C /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E009B82770D01500F9BE7C /* Enums.swift */; };
 		84E009E22770D01500F9BE7C /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E009B92770D01500F9BE7C /* Extensions.swift */; };
-		84E009E32770D01500F9BE7C /* Extension + UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E009BA2770D01500F9BE7C /* Extension + UIColor.swift */; };
-		84E009E42770D01500F9BE7C /* Extension + UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E009BB2770D01500F9BE7C /* Extension + UIView.swift */; };
+		84E009E32770D01500F9BE7C /* Extension-UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E009BA2770D01500F9BE7C /* Extension-UIColor.swift */; };
+		84E009E42770D01500F9BE7C /* Extension-UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E009BB2770D01500F9BE7C /* Extension-UIView.swift */; };
 		84E009E62770D04100F9BE7C /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E009E52770D04100F9BE7C /* SettingsView.swift */; };
 		84E009E82770D04600F9BE7C /* LaunchesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E009E72770D04600F9BE7C /* LaunchesView.swift */; };
 		84E009EA2770D05100F9BE7C /* CapsuleDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E009E92770D05100F9BE7C /* CapsuleDetailsView.swift */; };
@@ -92,13 +92,13 @@
 		84E009B12770D01500F9BE7C /* SpaceXDataAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpaceXDataAPI.swift; sourceTree = "<group>"; };
 		84E009B22770D01500F9BE7C /* SpaceXDataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpaceXDataService.swift; sourceTree = "<group>"; };
 		84E009B42770D01500F9BE7C /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		84E009B52770D01500F9BE7C /* Extension + UIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extension + UIViewController.swift"; sourceTree = "<group>"; };
-		84E009B62770D01500F9BE7C /* Extension + UIFont.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extension + UIFont.swift"; sourceTree = "<group>"; };
+		84E009B52770D01500F9BE7C /* Extension-UIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extension-UIViewController.swift"; sourceTree = "<group>"; };
+		84E009B62770D01500F9BE7C /* Extension-UIFont.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extension-UIFont.swift"; sourceTree = "<group>"; };
 		84E009B72770D01500F9BE7C /* DependencyManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DependencyManager.swift; sourceTree = "<group>"; };
 		84E009B82770D01500F9BE7C /* Enums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		84E009B92770D01500F9BE7C /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		84E009BA2770D01500F9BE7C /* Extension + UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extension + UIColor.swift"; sourceTree = "<group>"; };
-		84E009BB2770D01500F9BE7C /* Extension + UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extension + UIView.swift"; sourceTree = "<group>"; };
+		84E009BA2770D01500F9BE7C /* Extension-UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extension-UIColor.swift"; sourceTree = "<group>"; };
+		84E009BB2770D01500F9BE7C /* Extension-UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extension-UIView.swift"; sourceTree = "<group>"; };
 		84E009E52770D04100F9BE7C /* SettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		84E009E72770D04600F9BE7C /* LaunchesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchesView.swift; sourceTree = "<group>"; };
 		84E009E92770D05100F9BE7C /* CapsuleDetailsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CapsuleDetailsView.swift; sourceTree = "<group>"; };
@@ -271,10 +271,10 @@
 				84E009B42770D01500F9BE7C /* Constants.swift */,
 				84E009B82770D01500F9BE7C /* Enums.swift */,
 				84E009B92770D01500F9BE7C /* Extensions.swift */,
-				84E009B52770D01500F9BE7C /* Extension + UIViewController.swift */,
-				84E009BB2770D01500F9BE7C /* Extension + UIView.swift */,
-				84E009B62770D01500F9BE7C /* Extension + UIFont.swift */,
-				84E009BA2770D01500F9BE7C /* Extension + UIColor.swift */,
+				84E009B52770D01500F9BE7C /* Extension-UIViewController.swift */,
+				84E009BB2770D01500F9BE7C /* Extension-UIView.swift */,
+				84E009B62770D01500F9BE7C /* Extension-UIFont.swift */,
+				84E009BA2770D01500F9BE7C /* Extension-UIColor.swift */,
 				84E009B72770D01500F9BE7C /* DependencyManager.swift */,
 			);
 			path = Utils;
@@ -430,12 +430,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84E009E42770D01500F9BE7C /* Extension + UIView.swift in Sources */,
+				84E009E42770D01500F9BE7C /* Extension-UIView.swift in Sources */,
 				84E009EA2770D05100F9BE7C /* CapsuleDetailsView.swift in Sources */,
 				84E009E12770D01500F9BE7C /* Enums.swift in Sources */,
 				84E009C02770D01500F9BE7C /* SettingsModel.swift in Sources */,
 				84E009E82770D04600F9BE7C /* LaunchesView.swift in Sources */,
-				84E009E32770D01500F9BE7C /* Extension + UIColor.swift in Sources */,
+				84E009E32770D01500F9BE7C /* Extension-UIColor.swift in Sources */,
 				84E009BD2770D01500F9BE7C /* BaseLoaderViewController.swift in Sources */,
 				84E009C32770D01500F9BE7C /* SettingsViewController.swift in Sources */,
 				84E009D42770D01500F9BE7C /* CapsuleDetailsModel.swift in Sources */,
@@ -449,7 +449,7 @@
 				84E009D82770D01500F9BE7C /* NetworkHelpers.swift in Sources */,
 				84E009C12770D01500F9BE7C /* SettingsBuilder.swift in Sources */,
 				84E009D12770D01500F9BE7C /* CapsuleDetailsViewModel.swift in Sources */,
-				84E009DE2770D01500F9BE7C /* Extension + UIViewController.swift in Sources */,
+				84E009DE2770D01500F9BE7C /* Extension-UIViewController.swift in Sources */,
 				84E009D62770D01500F9BE7C /* MainTabBarBuilder.swift in Sources */,
 				84E0097D2770CF9200F9BE7C /* Router.swift in Sources */,
 				84E009CC2770D01500F9BE7C /* CapsulesViewController.swift in Sources */,
@@ -458,7 +458,7 @@
 				84E0097B2770CF9200F9BE7C /* SceneDelegate.swift in Sources */,
 				84E009CA2770D01500F9BE7C /* CapsulesBuilder.swift in Sources */,
 				84E009BF2770D01500F9BE7C /* SettingsViewModel.swift in Sources */,
-				84E009DF2770D01500F9BE7C /* Extension + UIFont.swift in Sources */,
+				84E009DF2770D01500F9BE7C /* Extension-UIFont.swift in Sources */,
 				84E009DB2770D01500F9BE7C /* SpaceXDataAPI.swift in Sources */,
 				84E009CF2770D01500F9BE7C /* CapsulesPresenter.swift in Sources */,
 				84E009D02770D01500F9BE7C /* CapsuleDetailsPresenter.swift in Sources */,
