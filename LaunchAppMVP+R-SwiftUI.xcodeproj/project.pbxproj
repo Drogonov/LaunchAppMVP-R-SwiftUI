@@ -185,12 +185,11 @@
 		84E009892770D01500F9BE7C /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				84E009E52770D04100F9BE7C /* SettingsView.swift */,
-				84E0098B2770D01500F9BE7C /* SettingsViewModel.swift */,
-				84E0098C2770D01500F9BE7C /* SettingsModel.swift */,
 				84E0098D2770D01500F9BE7C /* SettingsBuilder.swift */,
 				84E0098E2770D01500F9BE7C /* SettingsPresenter.swift */,
-				84E0098F2770D01500F9BE7C /* SettingsViewController.swift */,
+				84E0098C2770D01500F9BE7C /* SettingsModel.swift */,
+				84E009FF2770DB2800F9BE7C /* View */,
+				84E00A002770DB3100F9BE7C /* ViewModel */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -331,6 +330,23 @@
 			children = (
 				84E009A32770D01500F9BE7C /* CapsuleDetailsViewModel.swift */,
 				84E009FB2770D5FA00F9BE7C /* CapsuleDetailsCellViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		84E009FF2770DB2800F9BE7C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				84E009E52770D04100F9BE7C /* SettingsView.swift */,
+				84E0098F2770D01500F9BE7C /* SettingsViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		84E00A002770DB3100F9BE7C /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				84E0098B2770D01500F9BE7C /* SettingsViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
