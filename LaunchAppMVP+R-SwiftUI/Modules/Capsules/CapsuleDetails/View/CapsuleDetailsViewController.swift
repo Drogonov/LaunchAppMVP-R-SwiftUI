@@ -17,7 +17,7 @@ class CapsuleDetailsViewController: BaseViewController {
     // MARK: - Properties
     
     var presenter: CapsuleDetailsPresenterProtocol?
-    private var capsuleTableView = CapsuleDetailsTableView()
+    private var capsuleView = CapsuleDetailsView()
     
     // MARK: - Lifecycle
     
@@ -32,7 +32,7 @@ class CapsuleDetailsViewController: BaseViewController {
 extension CapsuleDetailsViewController {
     private func configureUI() {
         presenter?.setView()
-        configureTableView()
+        configureCapsuleView()
         view.backgroundColor = .systemGroupedBackground
     }
     
@@ -40,13 +40,12 @@ extension CapsuleDetailsViewController {
         setNavigationBarTitle(with: navigationTitle)
     }
     
-    private func configureTableView() {
-        capsuleTableView.set(capsuleValues: [])
-        addUIViewToViewController(capsuleTableView)
+    private func configureCapsuleView() {
+        addMainViewToViewController(capsuleView)
     }
     
     private func configureView(with viewModel: CapsuleDetailsViewModel) {
-        capsuleTableView.set(capsuleValues: viewModel.capsuleValues)
+        capsuleView.model = viewModel
     }
 }
 

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 protocol SettingsPresenterProtocol: AnyObject {
     init(
@@ -17,7 +18,7 @@ protocol SettingsPresenterProtocol: AnyObject {
     func setView()
 }
 
-class SettingsPresenter {
+class SettingsPresenter: ObservableObject {
     
     // MARK: - Services
     
@@ -27,7 +28,7 @@ class SettingsPresenter {
     var router: RouterProtocol
     var model: SettingsModel
     
-    private var viewModel = SettingsViewModel()
+    @ObservedObject var viewModel = SettingsViewModel()
     
     // MARK: - Construction
     
@@ -46,7 +47,7 @@ class SettingsPresenter {
 
 extension SettingsPresenter: SettingsPresenterProtocol {
     func setView() {
-        let viewModel = configureViewModel()
+        configureViewModel()
         self.view?.setView(with: viewModel)
     }
 }
@@ -54,20 +55,16 @@ extension SettingsPresenter: SettingsPresenterProtocol {
 // MARK: - Helper Functions
 
 extension SettingsPresenter {
-    func configureViewModel() -> SettingsViewModel {
+    func configureViewModel() {
         switch model.type {
         case .launches:
-            return SettingsViewModel(
-                navigationTitle: "Launches Settings",
-                text: "Falcon 9 is a reusable, two-stage rocket designed and manufactured by SpaceX for the reliable and safe transport of people and payloads into Earth orbit and beyond. Falcon 9 is the world’s first orbital class reusable rocket. Reusability allows SpaceX to refly the most expensive parts of the rocket, which in turn drives down the cost of space access.",
-                buttonText: "Confirm"
-            )
+            viewModel.navigationTitle = "Launches Settings"
+            viewModel.text = "Falcon 9 is a reusable, two-stage rocket designed and manufactured by SpaceX for the reliable and safe transport of people and payloads into Earth orbit and beyond. Falcon 9 is the world’s first orbital class reusable rocket. Reusability allows SpaceX to refly the most expensive parts of the rocket, which in turn drives down the cost of space access."
+            viewModel.buttonText = "Confirm"
         case .capsules:
-            return SettingsViewModel(
-                navigationTitle: "Capsules Settings",
-                text: "The Dragon spacecraft is capable of carrying up to 7 passengers to and from Earth orbit, and beyond. It is the only spacecraft currently flying that is capable of returning significant amounts of cargo to Earth, and is the first private spacecraft to take humans to the space station.",
-                buttonText: "Confirm"
-            )
+            viewModel.navigationTitle = "Capsules Settings"
+            viewModel.text = "The Dragon spacecraft is capable of carrying up to 7 passengers to and from Earth orbit, and beyond. It is the only spacecraft currently flying that is capable of returning significant amounts of cargo to Earth, and is the first private spacecraft to take humans to the space station."
+            viewModel.buttonText = "Confirm"
         }
     }
 }

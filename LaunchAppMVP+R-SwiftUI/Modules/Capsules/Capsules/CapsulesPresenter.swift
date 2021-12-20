@@ -6,7 +6,7 @@
 //  Copyright (c) 2021 ___ORGANIZATIONNAME___. All rights reserved.
 //
 
-import Foundation
+import SwiftUI
 import UIKit
 
 protocol CapsulesPresenterProtocol: AnyObject {
@@ -20,7 +20,7 @@ protocol CapsulesPresenterProtocol: AnyObject {
     func routeToSettings(with viewController: UIViewController)
 }
 
-class CapsulesPresenter {
+class CapsulesPresenter: ObservableObject {
     
     // MARK: - Services
     
@@ -31,7 +31,7 @@ class CapsulesPresenter {
     weak var view: CapsulesViewControllerProtocol?
     var router: RouterProtocol
     
-    private var viewModel = CapsulesViewModel()
+    @ObservedObject private var viewModel = CapsulesViewModel()
     
     // MARK: - Construction
     
@@ -48,7 +48,6 @@ class CapsulesPresenter {
 
 extension CapsulesPresenter: CapsulesPresenterProtocol {
     func setView() {
-        viewModel.navigationTitle = "Capsules"
         loadCapsules()
         self.view?.setView(with: viewModel)
     }
@@ -87,7 +86,7 @@ extension CapsulesPresenter {
     
     private func configureCapsulesArray(with response: [CapsuleMo]) {
         viewModel.capsules = response.map { model in
-            let statusButtonColor: UIColor = model.status == "active" ? .green : .red
+            let statusButtonColor: Color = model.status == "active" ? .green : .red
             let serial = model.capsuleSerial ?? "no serial"
             
             return CapsuleCellViewModel(

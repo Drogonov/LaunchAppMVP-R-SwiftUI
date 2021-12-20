@@ -17,7 +17,11 @@ class SettingsViewController: BaseViewController {
     // MARK: - Properties
     
     var presenter: SettingsPresenterProtocol?
-    private var settingsView = SettingsView()
+    private lazy var settingsView = SettingsView(
+        confirmButtonTapped: {
+            self.confirmButtonTapped()
+        }
+    )
 
     // MARK: - Lifecycle
     
@@ -40,12 +44,11 @@ extension SettingsViewController {
     }
     
     private func configureSettingsView() {
-        settingsView.delegate = self
-        addUIViewToViewController(settingsView)
+        addMainViewToViewController(settingsView)
     }
     
     private func configureView(with viewModel: SettingsViewModel) {
-        settingsView.set(model: viewModel)
+        settingsView.model = viewModel
     }
 }
 
@@ -58,10 +61,10 @@ extension SettingsViewController: SettingsViewControllerProtocol {
     }
 }
 
-// MARK: - SettingsViewDelegate
+// MARK: - Helper Functions
 
-extension SettingsViewController: SettingsViewDelegate {
-    func confirmButtonTapped() {
+extension SettingsViewController {
+    private func confirmButtonTapped() {
         showNotification(
             title: "You confirmed new settings!",
             message: "Now your app is updated",

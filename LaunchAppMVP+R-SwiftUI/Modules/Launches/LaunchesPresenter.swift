@@ -6,8 +6,8 @@
 //  Copyright (c) 2021 ___ORGANIZATIONNAME___. All rights reserved.
 //
 
-import Foundation
 import UIKit
+import SwiftUI
 
 protocol LaunchesPresenterProtocol: AnyObject {
     init(
@@ -18,7 +18,7 @@ protocol LaunchesPresenterProtocol: AnyObject {
     func routeToSettings(with viewController: UIViewController)
 }
 
-class LaunchesPresenter {
+class LaunchesPresenter: ObservableObject {
     
     // MARK: - Services
     
@@ -29,7 +29,7 @@ class LaunchesPresenter {
     weak var view: LaunchesViewControllerProtocol?
     var router: RouterProtocol
 
-    private var viewModel = LaunchesViewModel()
+    @ObservedObject var viewModel = LaunchesViewModel()
 
     // MARK: - Construction
     
@@ -46,7 +46,6 @@ class LaunchesPresenter {
 
 extension LaunchesPresenter: LaunchesPresenterProtocol {
     func setView() {
-        viewModel.navigationTitle = "Launches"
         loadLaunches()
         self.view?.setView(with: viewModel)
     }

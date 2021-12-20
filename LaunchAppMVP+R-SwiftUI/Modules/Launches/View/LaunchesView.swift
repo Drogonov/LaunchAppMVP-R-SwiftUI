@@ -13,37 +13,11 @@ struct LaunchesView: View {
     
     // MARK: - Properties
     
-    @EnvironmentObject var router: Router
-    @ObservedObject var model: LaunchesViewModel
+    @ObservedObject var model: LaunchesViewModel = LaunchesViewModel()
     
     // MARK: - Construction
     
     var body: some View {
-        let navBarComponents = NavigationViewComponents(
-            navigationTitle: model.navigationTitle,
-            leftBarButtonTapped: {
-                model.loadLaunches()
-            },
-            rightBarButtonTapped: {
-                router.route = .settings(type: .launches)
-            }
-        )
-        
-        LoadedView(
-            loadState: $model.loadState,
-            successView: launchesView()
-        )
-            .navigationBarStyle(components: navBarComponents)
-            .onAppear {
-                model.loadLaunches()
-            }
-    }
-}
-
-// MARK: - Helper Functions
-
-extension LaunchesView {
-    private func launchesView() -> some View {
         List {
             ForEach(model.launches, id: \.id) { launch in
                 configureLaunchCell(with: launch)
@@ -51,7 +25,11 @@ extension LaunchesView {
         }
         .listStyle(.plain)
     }
-    
+}
+
+// MARK: - Helper Functions
+
+extension LaunchesView {
     private func configureLaunchCell(with launch: LaunchesCellViewModel) -> some View {
         HStack(alignment: .top, spacing: Constants.standartPadding) {
             if let url = URL(string: launch.imageURL) {

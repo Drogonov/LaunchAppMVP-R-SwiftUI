@@ -8,12 +8,9 @@
 
 import Foundation
 
-struct CapsuleDetailsViewModel {
+class CapsuleDetailsViewModel: ObservableObject {
     var navigationTitle: String = ""
-    var capsuleValues: [CapsuleDetailsCellViewModel] = []
+    @Published var capsuleValues: [CapsuleDetailsCellViewModel] = []
 }
 
-struct CapsuleDetailsCellViewModel {
-    var title: String = ""
-    var value: String = ""
-}
+

@@ -11,26 +11,16 @@ struct SettingsView: View {
     
     // MARK: - Properties
     
-    @EnvironmentObject var router: Router
-    @ObservedObject var model: SettingsViewModel
-    @State private var showingAlert = false
+    @ObservedObject var model: SettingsViewModel = SettingsViewModel()
+    var confirmButtonTapped: () -> Void
     
     // MARK: - Construction
     
     var body: some View {
-        NavigationView {
-            VStack {
-                configureTextEditor()
-                Spacer()
-                configureConfirmButton()
-            }
-            .navigationTitle(model.navigationTitle)
-        }
-        .onDisappear {
-            router.route = .mainTabBar
-        }
-        .alert(isPresented: self.$showingAlert) {
-            configureAlert()
+        VStack {
+            configureTextEditor()
+            Spacer()
+            configureConfirmButton()
         }
     }
 }
@@ -46,7 +36,7 @@ extension SettingsView {
     
     func configureConfirmButton() -> some View {
         Button {
-            showingAlert = true
+            confirmButtonTapped()
         } label: {
             Text(model.buttonText)
                 .padding(.horizontal, LocalConstants.buttonPaddingHorizontal)
@@ -55,16 +45,6 @@ extension SettingsView {
                 .background(Color.accentColor)
                 .cornerRadius(Constants.cornerRadius)
         }
-    }
-    
-    func configureAlert() -> Alert {
-        Alert(
-            title: Text("You confirmed new settings!"),
-            message: Text("Now your app is updated"),
-            dismissButton: .default(Text("OK"), action: {
-                self.showingAlert = false
-            })
-        )
     }
 }
 
@@ -81,11 +61,8 @@ extension SettingsView {
 struct SettingsView_Previews: PreviewProvider {
     static var previews: some View {
         SettingsView(
-            model: SettingsViewModel(
-                type: .launches
-            )
+            model: SettingsViewModel(),
+            confirmButtonTapped: {}
         )
     }
 }
-
-

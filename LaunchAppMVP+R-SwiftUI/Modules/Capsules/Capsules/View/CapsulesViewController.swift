@@ -17,12 +17,16 @@ class CapsulesViewController: BaseViewController {
     // MARK: - Properties
     
     var presenter: CapsulesPresenterProtocol?
-    private var capsulesCollectionView = CapsulesCollectionView()
+    lazy var capsulesView = CapsulesView(
+        capsuleTapped: { capsuleSerial in
+            self.presenter?.routeToDetails(with: capsuleSerial, and: self)
+        }
+    )
     
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
-        super.viewDidLoad()        
+        super.viewDidLoad()
         configureUI()
     }
     
@@ -38,7 +42,7 @@ class CapsulesViewController: BaseViewController {
 extension CapsulesViewController {
     private func configureUI() {
         presenter?.setView()
-        configureCollectionView()
+        configureCapsulesView()
     }
     
     private func configureNavigationBar(navigationTitle: String) {
@@ -52,14 +56,12 @@ extension CapsulesViewController {
         )
     }
     
-    private func configureCollectionView() {
-        capsulesCollectionView.delegate = self
-        capsulesCollectionView.set(capsules: [])
-        addUIViewToViewController(capsulesCollectionView)
+    private func configureCapsulesView() {
+        addMainViewToViewController(capsulesView)
     }
     
     private func configureView(with viewModel: CapsulesViewModel) {
-        capsulesCollectionView.set(capsules: viewModel.capsules)
+        capsulesView.model = viewModel
     }
 }
 
@@ -69,13 +71,5 @@ extension CapsulesViewController: CapsulesViewControllerProtocol {
     func setView(with viewModel: CapsulesViewModel) {
         configureNavigationBar(navigationTitle: viewModel.navigationTitle)
         configureView(with: viewModel)
-    }
-}
-
-// MARK: - CapsulesCollectionViewDelegate
-
-extension CapsulesViewController: CapsulesCollectionViewDelegate {
-    func capsuleTapped(with capsuleSerial: String?) {
-        presenter?.routeToDetails(with: capsuleSerial, and: self)
     }
 }

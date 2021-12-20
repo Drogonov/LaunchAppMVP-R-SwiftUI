@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct SettingsViewModel {
+class SettingsViewModel: ObservableObject  {
     var navigationTitle: String = ""
     var text: String = ""
     var buttonText: String = ""

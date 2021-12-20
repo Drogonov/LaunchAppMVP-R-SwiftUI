@@ -11,33 +11,22 @@ struct CapsuleDetailsView: View {
     
     // MARK: - Properties
     
-    @ObservedObject var model: CapsuleDetailsViewModel
+    @ObservedObject var model: CapsuleDetailsViewModel = CapsuleDetailsViewModel()
     
     // MARK: - Construction
     
     var body: some View {
-        LoadedView(
-            loadState: $model.loadState,
-            successView: capsuleView()
-        )
-            .navigationTitle(model.navigationTitle)
-            .onAppear {
-                model.loadCapsule()
-            }
-    }
-}
-
-// MARK: - Helper Function
-
-extension CapsuleDetailsView {
-    private func capsuleView() -> some View {
         List {
             ForEach(model.capsuleValues, id: \.self) { value in
                 configureCapsuleDetailsCell(with: value)
             }
         }
     }
-    
+}
+
+// MARK: - Helper Function
+
+extension CapsuleDetailsView {
     private func configureCapsuleDetailsCell(with value: CapsuleDetailsCellViewModel) -> some View {
         HStack(alignment: .top, spacing: Constants.standartPadding) {
             Text(value.title + ":")
@@ -50,6 +39,6 @@ extension CapsuleDetailsView {
 
 struct CapsuleDetailsView_Previews: PreviewProvider {
     static var previews: some View {
-        CapsuleDetailsView(model: CapsuleDetailsViewModel(model: CapsuleDetailsModel(serial: "666")))
+        CapsuleDetailsView(model: CapsuleDetailsViewModel())
     }
 }

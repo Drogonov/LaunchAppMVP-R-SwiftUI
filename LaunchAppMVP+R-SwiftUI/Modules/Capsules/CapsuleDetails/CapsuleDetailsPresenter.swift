@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 protocol CapsuleDetailsPresenterProtocol: AnyObject {
     init(
@@ -17,7 +18,7 @@ protocol CapsuleDetailsPresenterProtocol: AnyObject {
     func setView()
 }
 
-class CapsuleDetailsPresenter {
+class CapsuleDetailsPresenter: ObservableObject {
     
     // MARK: - Services
     
@@ -29,7 +30,7 @@ class CapsuleDetailsPresenter {
     var router: RouterProtocol
     var model: CapsuleDetailsModel
     
-    private var viewModel = CapsuleDetailsViewModel()
+    @ObservedObject var viewModel = CapsuleDetailsViewModel()
     
     // MARK: - Construction
     

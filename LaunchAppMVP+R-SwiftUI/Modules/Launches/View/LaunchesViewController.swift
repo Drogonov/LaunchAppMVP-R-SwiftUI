@@ -17,7 +17,7 @@ class LaunchesViewController: BaseViewController {
     // MARK: - Properties
     
     var presenter: LaunchesPresenterProtocol?
-    private var launchesTableView = LaunchesTableView()
+    var launchesView = LaunchesView()
     
     // MARK: - Lifecycle
     
@@ -38,7 +38,7 @@ class LaunchesViewController: BaseViewController {
 extension LaunchesViewController {
     private func configureUI() {
         presenter?.setView()
-        configureTableView()
+        configureLaunchesView()
     }
     
     private func configureNavigationBar(navigationTitle: String) {
@@ -52,13 +52,12 @@ extension LaunchesViewController {
         )
     }
     
-    private func configureTableView() {
-        launchesTableView.set(launches: [])
-        addUIViewToViewController(launchesTableView)
+    private func configureLaunchesView() {
+        addMainViewToViewController(launchesView)
     }
     
     private func configureView(with viewModel: LaunchesViewModel) {
-        launchesTableView.set(launches: viewModel.launches)
+        launchesView.model = viewModel
     }
 }
 

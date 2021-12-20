@@ -11,38 +11,14 @@ struct CapsulesView: View {
     
     // MARK: - Properties
     
-    @EnvironmentObject var router: Router
-    @ObservedObject var model: CapsulesViewModel
+    @ObservedObject var model: CapsulesViewModel = CapsulesViewModel()
     @State var selection: Int? = nil
+    
+    var capsuleTapped: (String) -> Void
     
     // MARK: - Construction
     
     var body: some View {
-        let navBarComponents = NavigationViewComponents(
-            navigationTitle: model.navigationTitle,
-            leftBarButtonTapped: {
-                model.loadCapsules()
-            },
-            rightBarButtonTapped: {
-                router.route = .settings(type: .capsules)
-            }
-        )
-        
-        LoadedView(
-            loadState: $model.loadState,
-            successView: capsulesView()
-        )
-            .navigationBarStyle(components: navBarComponents)
-            .onAppear {
-                model.loadCapsules()
-            }
-    }
-}
-
-// MARK: - Helper Functions
-
-extension CapsulesView {
-    private func capsulesView() -> some View {
         let layout = [
             GridItem(
                 .adaptive(
@@ -53,7 +29,7 @@ extension CapsulesView {
             )
         ]
         
-        return ScrollView {
+        ScrollView {
             LazyVGrid(columns: layout, alignment: .center, spacing: Constants.smallPadding) {
                 ForEach(model.capsules, id: \.id) { capsule in
                     configureCapsuleCell(capsule: capsule)
@@ -62,13 +38,15 @@ extension CapsulesView {
             .padding(5)
         }
     }
-    
-    private func configureCapsuleCell(capsule: CapsuleCellViewModel) -> some View {
-        let model = CapsuleDetailsViewModel(model: CapsuleDetailsModel(serial: capsule.capsuleName))
+}
 
-        return VStack(alignment: .center, spacing:Constants.standartPadding) {
+// MARK: - Helper Functions
+
+extension CapsulesView {
+    private func configureCapsuleCell(capsule: CapsuleCellViewModel) -> some View {
+        VStack(alignment: .center, spacing:Constants.standartPadding) {
             configureStatusButton(with: capsule)
-            configureNavigationButton(with: capsule, and: model)
+            configureImageButton(with: capsule)
             Text(capsule.capsuleName)
             Spacer()
         }
@@ -79,19 +57,9 @@ extension CapsulesView {
         .cornerRadius(Constants.cornerRadius)
     }
     
-    func configureNavigationButton(with capsule: CapsuleCellViewModel, and model: CapsuleDetailsViewModel) -> some View{
-        NavigationLink(
-            destination: CapsuleDetailsView(model: model),
-            tag: 1,
-            selection: $selection
-        ) {
-            configureImageButton(with: capsule)
-        }
-    }
-    
     func configureImageButton(with capsule: CapsuleCellViewModel) -> some View {
         Button {
-            self.selection = 1
+            capsuleTapped(capsule.capsuleName)
         } label: {
             Text(capsule.capsuleEmoji)
                 .font(Font.emojiFont)
@@ -151,7 +119,8 @@ struct CapsulesView_Previews: PreviewProvider {
         model.capsules.append(capsule2)
         
         return CapsulesView(
-            model: model
+            model: model,
+            capsuleTapped: { _ in }
         )
     }
 }
